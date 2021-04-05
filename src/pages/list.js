@@ -1,52 +1,24 @@
 import { Table, Divider, Tag } from 'antd';
 import React, { Component } from 'react';
+import { connect } from 'dva';
 const { Column, ColumnGroup } = Table;
 
-const employeeList = [
-  {
-    key: '1',
-    firstName: 'John',
-    lastName: 'Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    firstName: 'Jim',
-    lastName: 'Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    firstName: 'Joe',
-    lastName: 'Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
-  },
-];
 
-export default class List extends Component {
+class List extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: employeeList,
-    };
   }
   
   delete = (key) => {
-    let next = this.state.data.filter(item => item.key !== key);
-    this.setState({
-      data: next
-    })
+    this.props.dispatch({
+      type: 'employees/delete',
+      payload: key,
+    });
   }
 
   render() {
     return (
-      <Table dataSource={this.state.data}>
+      <Table dataSource={this.props.data}>
         <ColumnGroup title="Name">
           <Column title="First Name" dataIndex="firstName" key="firstName" />
           <Column title="Last Name" dataIndex="lastName" key="lastName" />
@@ -82,3 +54,6 @@ export default class List extends Component {
     );
   }
 }
+
+
+export default connect(({employees})=>({data: employees}) )(List)
