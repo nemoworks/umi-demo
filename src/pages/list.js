@@ -5,7 +5,8 @@ import { Link } from 'umi';
 const { Column, ColumnGroup } = Table;
 
 class List extends Component {
-  componentDidMount() {
+
+  fetch = () => {
     this.props.dispatch({
       type: 'employees/fetch',
     });
@@ -35,6 +36,7 @@ class List extends Component {
       <Card
         extra={
           <div>
+            <Button onClick={this.fetch}>Fetch</Button>
             <Button onClick={this.recover}>Recover</Button>
             <Button onClick={this.commit}>Commit</Button>
           </div>

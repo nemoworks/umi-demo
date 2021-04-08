@@ -72,6 +72,9 @@ export default {
     },
     *recover(_, {call, put}){
       yield call(request.get, '/api/recover')
+      yield put({
+        type: 'fetch'
+      })
     }
   }
 };
