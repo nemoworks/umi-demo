@@ -30,8 +30,24 @@ export default {
   state: employeeList,
   reducers: {
     'delete'(state, { payload: id }) {
-        console.log('delete',id);
       return state.filter(item => item.key !== id);
     },
+    'append'(state, { payload: info}) {
+      let next = state
+      next.push({
+        key: (state.length+1).toString(),
+        tags: [],
+        ...info
+      })
+      return next
+    },
+    'edit'(state, { payload: info}) {
+      let index = state.findIndex(item => item.key === info.key)
+      let next = state
+      next[index] = info
+      console.log(info)
+      console.log(state)
+      return next
+    }
   },
 };

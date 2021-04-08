@@ -8,7 +8,7 @@ function BasicLayout(props) {
   <Layout>
     <Header>
       <div/>
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
         <Menu.Item key="1"><Link to="/"><AppstoreOutlined/>index</Link></Menu.Item>
         <Menu.Item key="2"><Link to="/employee"><UserOutlined/>employee</Link></Menu.Item>
         <Menu.Item key="3"><Link to="/list"><TeamOutlined/>list</Link></Menu.Item>

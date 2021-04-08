@@ -1,6 +1,7 @@
 import { Table, Divider, Tag } from 'antd';
 import React, { Component } from 'react';
 import { connect } from 'dva';
+import { Link } from 'umi';
 const { Column, ColumnGroup } = Table;
 
 
@@ -44,7 +45,7 @@ class List extends Component {
           key="action"
           render={(text, record) => (
             <span>
-              <a>Invite {record.lastName}</a>
+              <Link to={`/employee?key=${record.key}`}>Edit {record.lastName}</Link>
               <Divider type="vertical" />
               <a onClick={(e)=>this.delete(record.key)}>Delete</a>
             </span>
