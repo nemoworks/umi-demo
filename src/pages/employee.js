@@ -1,6 +1,5 @@
 import { Card, Form, Input, InputNumber, Button } from 'antd';
 import React, { Component } from 'react';
-import { FormInstance } from 'antd/lib/form';
 import { connect } from 'dva';
 const layout = {
   labelCol: {

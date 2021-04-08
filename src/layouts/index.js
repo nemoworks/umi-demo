@@ -4,10 +4,10 @@ import { AppstoreOutlined, UserOutlined, TeamOutlined } from '@ant-design/icons'
 
 const { Header, Content, Footer } = Layout;
 function BasicLayout(props) {
+  
   return (
   <Layout>
     <Header>
-      <div/>
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
         <Menu.Item key="1"><Link to="/"><AppstoreOutlined/>index</Link></Menu.Item>
         <Menu.Item key="2"><Link to="/employee"><UserOutlined/>employee</Link></Menu.Item>
